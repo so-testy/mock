@@ -2,6 +2,7 @@ import env from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import http from 'http';
+import cors from 'cors';
 
 import router from './routes/index';
 
@@ -10,6 +11,7 @@ const server = http.createServer(app);
 
 env.config();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
