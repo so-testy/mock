@@ -4,11 +4,13 @@ import bodyParser from 'body-parser';
 import http from 'http';
 
 import router from './routes/index';
+import { initSocket } from './libs/socket';
 
 const app = express();
 const server = http.createServer(app);
 
 env.config();
+initSocket(server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
