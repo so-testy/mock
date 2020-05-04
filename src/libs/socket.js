@@ -27,7 +27,7 @@ export const initSocket = (server) => {
       let user = users.find((u) => u.id == socket.id);
 
       if (!user) {
-        user = { name: socket.id, id: socket.id, type: data.type, status: 'waiting', statusChanged: new Date() };
+        user = { name: data.name, id: socket.id, type: data.type, status: 'waiting', statusChanged: new Date() };
         users.push(user);
         if (data.type !== 'teacher') exam.queue.waiting.push(user);
         // activeUsers.push(user);
